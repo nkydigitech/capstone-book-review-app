@@ -1,0 +1,105 @@
+# 📘 Capstone: Book Review App — Cloud-Native AWS Deployment
+
+> **DMI DevOps Cohort | Beginner-Friendly | Step-by-Step with Screenshots**
+
+[![AWS](https://img.shields.io/badge/AWS-EKS%20%7C%20RDS%20%7C%20ECR-orange)](https://aws.amazon.com)
+[![Terraform](https://img.shields.io/badge/IaC-Terraform-purple)](https://terraform.io)
+[![Kubernetes](https://img.shields.io/badge/Orchestration-Kubernetes-blue)](https://kubernetes.io)
+[![Azure DevOps](https://img.shields.io/badge/CI%2FCD-Azure%20DevOps-0078D4)](https://dev.azure.com)
+
+---
+
+## 🎯 Project Overview
+
+A production-grade, three-tier **Book Review Application** deployed fully on AWS using:
+- **EKS** (Elastic Kubernetes Service) for container orchestration
+- **RDS Aurora MySQL** for the managed database
+- **Terraform** for all infrastructure as code
+- **Azure DevOps Pipelines** for end-to-end CI/CD automation
+- **GitHub** for source control
+
+No manual clicks. No console steps. Just code.
+
+---
+
+## 🏗️ Architecture
+
+```
+Internet
+   │
+   ▼
+AWS Load Balancer (public)
+   │
+   ├──▶ Frontend (React/Nginx) ──▶ EKS Pod
+   │
+   └──▶ Backend (Node.js) ──▶ EKS Pod ──▶ Aurora MySQL (RDS)
+```
+
+All resources live inside a custom VPC with public and private subnets across 2 Availability Zones.
+
+---
+
+## 📁 Repo Structure
+
+```
+capstone-book-review-app/
+├── terraform/            # All infrastructure as code
+│   ├── modules/
+│   │   ├─� vpc/            # VPC, subnets, routing
+│   │   ├── eks/            # EKS cluster + node groups
+│   │   └── rds/            # Aurora MySQL cluster
+│   ├─� main.tf
+│   ├─� variables.tf
+│   ├── outputs.tf
+│   ├── providers.tf
+│   └── backend.tf
+├── k8s/                    # Kubernetes manifests
+│   ├── frontend/
+│   └─� backend/
+├── frontend/               # Frontend app + Dockerfile
+├─� backend/                # Backend app + Dockerfile
+├── azure-pipelines.yml     # CI/CD pipeline definition
+└─� screenshots/            # Phase-by-phase screenshots
+```
+
+---
+
+## 🚀 Build Phases
+
+| Phase | Topic | Status |
+|-------|-------|--------|
+| 1 | Foundations & Setup | ✅ |
+| 2 | Terraform: VPC & Networking | ⬜ |
+| 3 | Terraform: EKS Cluster | ⬜ |
+| 4 | Terraform: RDS Aurora MySQL | ⬜ |
+| 5 | Dockerize the App | ⬜ |
+| 6 | Kubernetes Manifests | ⬜ |
+| 7 | Azure DevOps CI/CD Pipeline | ⬜ |
+| 8 | End-to-End Validation | ⬜ |
+
+---
+
+## ✅ Final Checklist
+
+- [ ] Terraform infra automation
+- [ ] EKS + RDS fully provisioned
+- [ ] Pipelines in Azure DevOps
+- [ ] CI/CD pipeline for deployment
+- [ ] Application deployed to EKS
+- [ ] App accessible via LoadBalancer
+
+---
+
+## 🛠 ️ Prerequisites
+
+- AWS Account with IAM user (Access Key + Secret)
+- Terraform >= 1.5.x
+- kubectl >= 1.28
+- eksctl >= 0.180
+- Docker >= 24.x
+- AWS CLI v2
+- Azure DevOps account
+
+---
+
+*Built by [Nkechi Ahanonye](https://github.com/nkydigitech) | DMI DevOps Cohort 2026*
